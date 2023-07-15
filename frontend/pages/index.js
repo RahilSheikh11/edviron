@@ -102,7 +102,7 @@ const FirstRowData = [
 };
 
 
-export async function getServerSideProps(context) {
+export async function getInitialProps() {
   const students= await fetchData(`/api/students`,"Get",null)
   const sections= await fetchData(`/api/sections/countClasses`,"Get",null)
   const transactionSucess= await fetchData(`/api/transactions/success`,"Get")
