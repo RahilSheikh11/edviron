@@ -21,7 +21,6 @@ const DashboardBarGraph = () => {
     
 
     <Overview>
-      <OverviewChild alt="" src="/rectangle-161.svg" />
       <Title>Overview</Title>
       <Description>Monthly Collection</Description>
       <BarGraph>
@@ -39,41 +38,40 @@ const DashboardBarGraph = () => {
 
 const Overview = styled.div`
   position: absolute;
-  top: 260px;
-  left: -61px;
-  width: 700px;
+  top: 306px;
+  width: 600px;
   height: 415px;
   font-size: 22px;
+  border-radius: 30px;
+  background-color:white;
   @media (max-width: 768px) {
-    left: 60px;
+    left: 120px;
   }
 `;
-const OverviewChild = styled.img`
-  position: absolute;
-  border-radius: 30px;
-  overflow: hidden;
-`;
+
 const Title = styled.div`
   position: absolute;
-  top: 80px;
-  left: 100px;
+  top: 50px;
+  left: 50px;
   letter-spacing: -0.01em;
   font-weight: 600;
 `;
+
 const Description = styled.div`
   position: absolute;
-  top: 120px;
-  left: 100px;
+  top: 85px;
+  left: 50px;
   font-size: 14px;
   letter-spacing: -0.01em;
   color: #acacac;
 `;
+
 const BarGraph = styled.div`
   position: absolute;
-  top: 180px;
-  left: 100px;
+  top: 130px;
+  left: 50px;
   width: 90%;
-  height: 200px;
+  height: 250px;
   font-size: 22px;
   display: flex; 
   align-items: flex-end; 
