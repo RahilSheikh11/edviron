@@ -7,19 +7,19 @@ const DashboardEarningRow = ({data}) => {
     <Overview>
       <CardContainer>
         {data.map((item) => (<>
-          <Card key={item.title}>
-            <Balance>{item.title}</Balance>
-            <L2>{item.balance}</L2>
-            {item.icon1 && <GroupIcon alt="" src={item.icon1} />}
-            {item.from && <b>{item.b}</b>}
-            {item.icon2 && <GroupIcon alt="" src={item.icon2} />}
-            {item.defaultersPercentage && (
+          <Card key={item?.title}>
+            <Balance>{item?.title}</Balance>
+            <L2>{item?.balance}</L2>
+            {item?.icon1 && <GroupIcon alt="" src={item?.icon1} />}
+            {item?.from && <b>{item?.b}</b>}
+            {item?.icon2 && <GroupIcon alt="" src={item?.icon2} />}
+            {item?.defaultersPercentage && (
               <InLast30DaysGroup>
                 <InLast30Container1>
-                  <b>{item.defaultersPercentage}</b>
+                  <b>{item?.defaultersPercentage}</b>
                   <InLast30>in last 30 days</InLast30>
                 </InLast30Container1>
-                <ArrowUp1Icon1 alt="" src={item.arrow} />
+                <ArrowUp1Icon1 alt="" src={item?.arrow} />
               </InLast30DaysGroup>
             )}
           <LineDiv />

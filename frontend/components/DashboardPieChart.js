@@ -76,7 +76,7 @@ position:relative;
 `;
 const MyPieChart = ({ data }) => {
   const roundedPercentages = data.datasets[0].data.map((percentage) =>
-    percentage.toFixed(2)
+    percentage?.toFixed(2)
   );
   const options = {
     plugins: {

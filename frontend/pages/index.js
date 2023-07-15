@@ -15,7 +15,7 @@ const PieChartData = {
   labels: ["Online", "Cash", "Cheque"],
   datasets: [
     {
-      data: [transactionType.onlinePercentage, transactionType.cashPercentage, transactionType.chequePercentage],
+      data: [transactionType?.onlinePercentage, transactionType?.cashPercentage, transactionType?.chequePercentage],
       backgroundColor: ["#4318FF", "#6AD2FF", "#EFF4FB"],
       hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
     },
@@ -25,7 +25,7 @@ const PieChartData = {
 const FirstRowData = [
   {
     title: 'Collection till date',
-    balance: '₹'+ formatAmount(transactionSucess.totalAmount),
+    balance: '₹'+ formatAmount(transactionSucess?.totalAmount),
     defaultersPercentage: '10%',
     icon1: '/group-10.svg',
     arrow: '/arrowup-11.svg',
@@ -55,13 +55,13 @@ const FirstRowData = [
     {
       icon: '/rectangle-16.svg',
       label: 'Sections',
-      value: sections["12"],
+      value: sections?.["12"],
       description: 'in 12 classes',
     },
     {
       icon: '/rectangle-16.svg',
       label: 'Collection this month',
-      value: '₹'+ formatAmount(transactionSucess.totalAmountThisMonth),
+      value: '₹'+ formatAmount(transactionSucess?.totalAmountThisMonth),
     },
     {
       icon: '/rectangle-16.svg',
@@ -69,18 +69,9 @@ const FirstRowData = [
       value: '₹11.20L',
     },
   ];
-  const pieChartData = {
-    labels: ["Online", "Cash", "Cheque"],
-    datasets: [
-      {
-        data: [63, 25, 11],
-        backgroundColor: ["#4318FF", "#6AD2FF", "#EFF4FB"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      },
-    ],
-  };
 
-  const TableAdmin={title:"Admin",rows: admins.slice(0, 4).reduce((acc, { access, email_id }) => {
+
+  const TableAdmin={title:"Admin",rows: admins?.slice(0, 4).reduce((acc, { access, email_id }) => {
     if (email_id) {
       acc.push([email_id, access]);
     }
@@ -102,7 +93,7 @@ const FirstRowData = [
 };
 
 
-export async function getInitialProps() {
+export async function getServerSideProps() {
   const students= await fetchData(`/api/students`,"Get",null)
   const sections= await fetchData(`/api/sections/countClasses`,"Get",null)
   const transactionSucess= await fetchData(`/api/transactions/success`,"Get")
@@ -112,7 +103,6 @@ export async function getInitialProps() {
   return {
     props: {
       students: students.count||null,
-      cookie: context.req.headers.cookie,
       sections:sections.body,
       transactionSucess,
       fines,
