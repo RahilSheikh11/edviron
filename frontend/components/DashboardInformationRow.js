@@ -1,30 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const DashboardInformationRow = () => {
-  const dashboardData = [
-    {
-      icon: '/rectangle-16.svg',
-      label: 'Students',
-      value: '1,049',
-    },
-    {
-      icon: '/rectangle-16.svg',
-      label: 'Sections',
-      value: '18',
-      description: 'in 12 classes',
-    },
-    {
-      icon: '/rectangle-16.svg',
-      label: 'Collection this month',
-      value: '₹90.56L',
-    },
-    {
-      icon: '/rectangle-16.svg',
-      label: 'Fine Collected till date',
-      value: '₹11.20L',
-    },
-  ];
+const DashboardInformationRow = ({dashboardData}) => {
+ 
 
   return (
     <DashboardInner>

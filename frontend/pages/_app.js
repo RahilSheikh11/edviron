@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/Layout";
+import APIContextProvider from "../context/ApiContext";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -29,19 +30,20 @@ function MyApp({ Component, pageProps }) {
         <style
           dangerouslySetInnerHTML={{
             __html: `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');`,
+                      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');`,
           }}
         />
       </Head>
-      <GlobalStyle />
+      <APIContextProvider>
+        <GlobalStyle />
 
-      <ThemeProvider theme={theme}>
-        <Layout>
-
-        <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </APIContextProvider>
     </React.Fragment>
   );
 }

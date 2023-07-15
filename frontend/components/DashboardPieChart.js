@@ -32,6 +32,7 @@ const LabelContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  text-align:center;
 `;
 
 const Label = styled.span`
@@ -40,7 +41,7 @@ const Label = styled.span`
 const Title = styled.div`
   position: absolute;
   top: 50px;
-  left: 50px;
+  left: 25px;
   font-size: 22px;
   letter-spacing: -0.01em;
   font-weight: 600;
@@ -49,24 +50,34 @@ const Title = styled.div`
 const Description = styled.div`
   position: absolute;
   top: 85px;
-  left: 50px;
+  left: 25px;
   font-size: 14px;
   letter-spacing: -0.01em;
   color: #acacac;
 `;
-
-const MyPieChart = () => {
-  const data = {
-    labels: ["Online", "Cash", "Cheque"],
-    datasets: [
-      {
-        data: [63, 25, 11],
-        backgroundColor: ["#4318FF", "#6AD2FF", "#EFF4FB"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      },
-    ],
-  };
-
+const ColorCircle = styled.span`
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background-color: ${(props) => props.color};
+`;
+const Percentage = styled.span`
+position:relative;
+  color: #acacac;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color:#2B3674;
+  text-align:center
+ padding-left:10px;
+ left:10px;
+`;
+const MyPieChart = ({ data }) => {
+  const roundedPercentages = data.datasets[0].data.map((percentage) =>
+    percentage.toFixed(2)
+  );
   const options = {
     plugins: {
       legend: {
@@ -78,13 +89,19 @@ const MyPieChart = () => {
   return (
     <Overview>
       <Title>Payment Mode</Title>
-      <Description>Split between Online, Cash and Cheque for collections till date</Description>
+      <Description>
+        Split between Online, Cash and Cheque for collections till date
+      </Description>
       <ChartContainer>
         <Pie data={data} options={options} />
       </ChartContainer>
       <LabelContainer>
         {data.labels.map((label, index) => (
-          <Label key={index}>{label}</Label>
+          <Label key={index}>
+            {" "}
+            <ColorCircle color={data.datasets[0].backgroundColor[index]} />{" "}
+            {label} <Percentage>{roundedPercentages[index]}%</Percentage>
+          </Label>
         ))}
       </LabelContainer>
     </Overview>

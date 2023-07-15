@@ -1,35 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
-const data = [
-  {
-    title: 'Collection till date',
-    balance: '₹5.34Cr',
-    defaultersPercentage: '10%',
-    icon1: '/group-10.svg',
-    arrow: '/arrowup-11.svg',
-  },
-  {
-    title: 'Balance',
-    balance: '₹2.4L',
-    icon1: '/group-101.svg',
-  },
-  {
-    title: 'Defaulters',
-    balance: '11',
-    from: '/1049 Students',
-    defaultersPercentage: '10%',
-    arrow: '/arrowup-1.svg',
-    icon1: '/group-102.svg',
-    icon2: '/icon.svg',
-  },
-];
 
-const DashboardEarningRow = () => {
+
+const DashboardEarningRow = ({data}) => {
   return (
     <Overview>
       <CardContainer>
-        {data.map((item, index) => (<>
-          <Card key={index}>
+        {data.map((item) => (<>
+          <Card key={item.title}>
             <Balance>{item.title}</Balance>
             <L2>{item.balance}</L2>
             {item.icon1 && <GroupIcon alt="" src={item.icon1} />}

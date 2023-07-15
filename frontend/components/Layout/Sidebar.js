@@ -232,8 +232,8 @@ const Logo = styled.div`
 
 const V01 = styled.div`
   position: absolute;
-  top: 56px;
-  left: 174px;
+  top: 30px;
+  left: 150px;
   font-size: 10px;
   letter-spacing: -0.01em;
   font-weight: 500;

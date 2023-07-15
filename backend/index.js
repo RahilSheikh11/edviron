@@ -22,10 +22,33 @@ const defaulterRoutes = require("./routes/defaulterRoutes")
 app.use("/api/defaulters", defaulterRoutes);
  
 
-const studentsRoutes = require("./routes/studentRoutes")
-app.use("/api/students", studentsRoutes);
+const studentRoutes = require("./routes/studentRoutes")
+app.use("/api/students", studentRoutes);
  
+const sectionRoutes = require("./routes/sectionRoutes")
+app.use("/api/sections", sectionRoutes);
+
+const transactionRoutes = require("./routes/transactionRoutes")
+app.use("/api/transactions", transactionRoutes);
 
 
+const invoiceRoutes = require("./routes/invoiceRoutes")
+app.use("/api/invoices", invoiceRoutes);
+
+
+const paymentRoutes = require("./routes/paymentRoutes")
+app.use("/api/payments", paymentRoutes);
+
+const fineRoutes = require("./routes/fineRoutes")
+app.use("/api/fines", fineRoutes);
+
+const feeheadRoutes = require("./routes/feeheadRoutes")
+app.use("/api/feeheads", feeheadRoutes);
+
+const adminRoutes = require("./routes/adminRoutes")
+app.use("/api/admins", adminRoutes);
+
+const Routes = require("./routes")
+app.use("/", Routes);
 
 module.exports.handler = serverless(app);
