@@ -88,6 +88,10 @@ const TableContainer = styled.div`
   td:before {
     color: #a3aed0;
   }
+
+  @media (max-width: 768px) {
+    margin-left: 120px;
+  }
 `;
 const Title = styled.div`
   position: absolute;

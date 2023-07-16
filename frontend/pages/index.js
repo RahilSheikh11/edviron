@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { APIContext } from "../context/ApiContext";
 import { fetchData } from "../lib/client";
 import TableCard from "../components/TableCard";
+import DynamicBarGraph from "../components/DynamicBarGraph";
 
 const Dashboard = ({students,sections,transactionSucess, admins,transactionType}) => {
  

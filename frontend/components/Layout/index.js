@@ -19,7 +19,7 @@ const DashboardRoot = styled.div`
   background-color: #fafbff;
   width: 100%;
   height: 1198px;
-  overflow: hidden;
+  overflow: auto;
   text-align: left;
   font-size: 14px;
   color: #000;

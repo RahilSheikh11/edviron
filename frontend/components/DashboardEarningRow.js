@@ -8,7 +8,7 @@ const DashboardEarningRow = ({data}) => {
       <CardContainer>
         {data.map((item) => (<>
           <Card key={item?.title}>
-            <Balance>{item?.title}</Balance>
+            <Balance >{item?.title}</Balance>
             <L2>{item?.balance}</L2>
             {item?.icon1 && <GroupIcon alt="" src={item?.icon1} />}
             {item?.from && <b>{item?.b}</b>}

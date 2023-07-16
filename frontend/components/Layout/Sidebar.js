@@ -29,15 +29,28 @@ const Sidebar = () => {
     },
   ];
   const [selectedItem, setSelectedItem] = useState(null);
+ // Step 1: Add state to track the sidebar open/close state
+ const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+ // Step 2: Toggle function to update the state
+ const handleSidebarToggle = () => {
+   setIsSidebarOpen((prev) => !prev);
+ };
   const handleItemClick = (index) => {
     setSelectedItem(index);
   };
 
-  return (
-    <SideMenu>
+  return (<>
+    <Logo onClick={handleSidebarToggle}>
+        <Edviron>Edviron</Edviron>
+        <Setting1Icon src="/setting-1.svg" alt="" />
+        <V01>v.01</V01>
+      </Logo>
+    {isSidebarOpen&&(
+
+      <SideMenu>
       <SideMenuChild />
-      <Logo>
+      <Logo onClick={handleSidebarToggle}>
         <Edviron>Edviron</Edviron>
         <Setting1Icon src="/setting-1.svg" alt="" />
         <V01>v.01</V01>
@@ -48,7 +61,7 @@ const Sidebar = () => {
             key={index}
             onClick={() => handleItemClick(index)}
             selected={index === selectedItem}
-          >
+            >
             <Icon24OutlineKeySqua src={item.icon} alt="" />
             <SideMenuItemLabel>{item.label}</SideMenuItemLabel>
             <ChevronRight2Icon src="/chevronright-2.svg" alt="" />
@@ -63,6 +76,8 @@ const Sidebar = () => {
       <ChevronDown2Icon src="/chevrondown-2.svg" alt="" />
       
     </SideMenu>
+        )}
+        </>
   );
 };
 
@@ -189,6 +204,9 @@ const PrashantKumarParent = styled.div`
   width: 117px;
   height: 38px;
   color: #000;
+  @media (max-width: 768px) {
+    display:none;
+  }
 `;
 
 const ChevronDown2Icon = styled.img`
@@ -238,6 +256,9 @@ const V01 = styled.div`
   letter-spacing: -0.01em;
   font-weight: 500;
   color: #838383;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default Sidebar;

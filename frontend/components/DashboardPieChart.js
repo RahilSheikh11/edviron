@@ -17,7 +17,7 @@ const Overview = styled.div`
   align-items: center;
   justify-content: center;
   @media (max-width: 768px) {
-    left: 120px;
+    margin-left: 120px;
   }
 `;
 

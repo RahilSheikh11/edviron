@@ -82,17 +82,19 @@ const PercentageDisplay = styled.div`
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 600;
-  color: #333;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
+  width: 35px;
   height: 24px;
-  border-radius: 50%;
-  background-color: #a5d8ff;
   opacity: 0;
+  background-image: url("/rectangle-cloud.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom:3px;
 `;
 
 const Bar = styled.div`
